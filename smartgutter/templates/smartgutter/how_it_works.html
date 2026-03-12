@@ -1,0 +1,63 @@
+{% extends 'smartgutter/base.html' %}
+
+{% block title %}How It Works{% endblock %}
+
+{% block content %}
+<div class="page-title">
+    <h1>User Experience & Collaboration</h1>
+    <p>How city workers and homeowners participate in the SmartGutter AI service</p>
+</div>
+
+<section class="section">
+    <div class="section-header">
+        <h2>For the City</h2>
+    </div>
+
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-icon">1</div>
+            <h3>Register Workers</h3>
+            <p>The city registers workers who can perform gutter cleaning. These workers receive assignments and alerts based on AI predictions.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">2</div>
+            <h3>Provide Gutter Data</h3>
+            <p>The city provides the number and locations of gutters that need cleaning, along with sensor deployment information.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">3</div>
+            <h3>Assign Priority</h3>
+            <p>Cleaning priority is assigned based on the predicted size and severity of the storm. The AI helps optimize resource allocation.</p>
+        </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 4rem;">
+        <h2>For Homeowners</h2>
+    </div>
+
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-icon">1</div>
+            <h3>Register for Service</h3>
+            <p>Homeowners register for the service and provide their location and contact information. This allows the system to match them with nearby gutters.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">2</div>
+            <h3>Get Matched</h3>
+            <p>The system identifies ideal gutters near their location for them to assist with when their help is needed.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">3</div>
+            <h3>Receive Alerts</h3>
+            <p>When help is needed, homeowners receive alerts and notifications to collaboratively unclog a specific gutter before a flood occurs.</p>
+        </div>
+    </div>
+
+    <div class="content-block" style="margin-top: 4rem; text-align: center;">
+        <p style="font-size: 1.1rem;">
+            Notifications and alerts are based on current and historical weather data. The scheduling of gutter cleaning uses weather data as well as available city resources—ensuring efficient, proactive flood prevention.
+        </p>
+        <a href="{% url 'register' %}" class="btn btn-primary" style="margin-top: 1.5rem;">Get Involved</a>
+    </div>
+</section>
+{% endblock %}

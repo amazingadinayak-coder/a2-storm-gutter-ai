@@ -1,0 +1,66 @@
+{% extends 'smartgutter/base.html' %}
+
+{% block title %}Solution{% endblock %}
+
+{% block content %}
+<div class="page-title">
+    <h1>Solution: SmartGutter AI System</h1>
+    <p>A collaborative system between the city and homeowners to proactively avoid flood situations</p>
+</div>
+
+<section class="section">
+    <div class="content-block">
+        <p>
+            SmartGutter AI is designed to create collaboration between the city and homeowners. The system collects data from sensors in storm gutters and uses notifications and alerts to provide details to both homeowners and city workers—enabling them to work together to ensure city drains are not clogged with debris.
+        </p>
+    </div>
+
+    <div class="section-header">
+        <h2>Design & Technology</h2>
+        <p>Three main components power the system</p>
+    </div>
+
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-icon">📡</div>
+            <h3>Gutter Sensors</h3>
+            <p>Sensors placed inside storm gutters collect data on water level, debris buildup, and other critical metrics in real time.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🧠</div>
+            <h3>Predictive AI</h3>
+            <p>Uses current and historical weather data combined with sensor data to predict the severity and size of potential flooding. This model is crucial for scheduling city resources.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📢</div>
+            <h3>Notification System</h3>
+            <p>Automated alerts are sent to the city and registered homeowners based on weather predictions and sensor readings.</p>
+        </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 4rem;">
+        <h2>Operations & Scheduling</h2>
+    </div>
+
+    <div class="two-col">
+        <div>
+            <h3>City Resource Management</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 1rem;">The AI model schedules gutter cleaning based on:</p>
+            <ul>
+                <li>Predicted weather severity</li>
+                <li>Available city workers</li>
+                <li>Gutter priority and locations</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Homeowner Mobilization</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 1rem;">When city resources may be overwhelmed:</p>
+            <ul>
+                <li>System predicts if additional help is required</li>
+                <li>Targeted alerts sent to registered homeowners</li>
+                <li>Homeowners assist with priority gutters near their location</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

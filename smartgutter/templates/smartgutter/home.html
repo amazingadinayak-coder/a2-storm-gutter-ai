@@ -1,0 +1,41 @@
+{% extends 'smartgutter/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <span class="hero-badge">Predictive Drain Management</span>
+    <h1>SmartGutter AI</h1>
+    <p class="hero-subtitle">
+        Preventing floods with data science and sensor technology. A collaborative system that predicts which drains are most likely to clog, coordinating cleaning efforts between city workers and local homeowners.
+    </p>
+    <div class="hero-cta">
+        <a href="{% url 'problem' %}" class="btn btn-secondary">Learn the Problem</a>
+        <a href="{% url 'register' %}" class="btn btn-primary">Get Involved</a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-header">
+        <h2>Why SmartGutter AI?</h2>
+        <p>Flooding from rainstorms is a serious problem when city storm drains become clogged with debris.</p>
+    </div>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-icon">📡</div>
+            <h3>Sensor Technology</h3>
+            <p>Sensors placed inside storm gutters collect real-time data on water levels and debris buildup.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🤖</div>
+            <h3>Predictive AI</h3>
+            <p>Uses current and historical weather data combined with sensor data to predict flood severity.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔔</div>
+            <h3>Smart Alerts</h3>
+            <p>Automated notifications keep city workers and homeowners informed when action is needed.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

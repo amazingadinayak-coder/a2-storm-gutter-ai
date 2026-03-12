@@ -1,0 +1,42 @@
+{% extends 'smartgutter/base.html' %}
+
+{% block title %}Problem Statement{% endblock %}
+
+{% block content %}
+<div class="page-title">
+    <h1>Problem Statement</h1>
+    <p>Understanding the challenges cities face with storm drain management</p>
+</div>
+
+<section class="section">
+    <div class="content-block">
+        <p>
+            Cities struggle to manage their storm drain systems efficiently, often leading to community flooding during heavy rainstorms because multiple drains become blocked by debris. Current methods often result in wasted resources or, worse, delayed response, causing preventable damage.
+        </p>
+        <p>
+            Use resources of the city efficiently and ensure that the community is not flooded during rainstorms where multiple drains are stuck at the same time with debris.
+        </p>
+    </div>
+
+    <div class="section-header">
+        <h2>Two Main Challenges</h2>
+    </div>
+
+    <ul class="problem-list">
+        <li>
+            <strong>Resource Scheduling:</strong> How to efficiently schedule city workers to unclog drains using real-time sensor data and historical weather patterns. Cities need to know which gutters to prioritize and when to deploy limited resources.
+        </li>
+        <li>
+            <strong>Community Mobilization:</strong> When a storm overwhelms city capacity, how to predict this in advance and mobilize local homeowners to provide necessary, organized assistance for cleaning specific priority gutters.
+        </li>
+    </ul>
+
+    <div class="content-block" style="margin-top: 3rem;">
+        <h2>Key Problems We Solve</h2>
+        <ol style="color: var(--color-text-muted); margin-left: 1.5rem; line-height: 2;">
+            <li>Scheduling city resources to unclog drains and prevent floods using current and historical weather data, plus gutter sensors.</li>
+            <li>Predicting when the city will be overwhelmed by a storm in a short amount of time, and mobilizing homeowner help in addition to city resources.</li>
+        </ol>
+    </div>
+</section>
+{% endblock %}
