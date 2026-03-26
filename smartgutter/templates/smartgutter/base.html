@@ -22,6 +22,7 @@
                 <li><a href="{% url 'problem' %}">Problem</a></li>
                 <li><a href="{% url 'solution' %}">Solution</a></li>
                 <li><a href="{% url 'how_it_works' %}">How It Works</a></li>
+                <li><a href="{% url 'gutter_priorities' %}">Gutter priorities</a></li>
                 <li><a href="{% url 'register' %}" class="nav-cta">Get Involved</a></li>
             </ul>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -31,6 +32,13 @@
     </header>
 
     <main class="main-content">
+        {% if messages %}
+        <div class="flash-messages" role="status">
+            {% for message in messages %}
+            <p class="flash flash-{{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
         {% block content %}{% endblock %}
     </main>
 

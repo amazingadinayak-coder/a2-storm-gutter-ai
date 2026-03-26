@@ -1,0 +1,25 @@
+{% extends 'smartgutter/base.html' %}
+
+{% block title %}Homeowner signup{% endblock %}
+
+{% block content %}
+<div class="page-title">
+    <h1>Homeowner signup</h1>
+    <p>Register your name, address, and contact information so the city can reach you about gutters near you.</p>
+</div>
+
+<section class="section section-narrow">
+    <div class="card form-card">
+        <form method="post" action="{% url 'homeowner_signup' %}" class="stack-form" novalidate>
+            {% csrf_token %}
+            {% include 'smartgutter/_form_fields.html' with form=form %}
+            <button type="submit" class="btn btn-primary">Submit registration</button>
+        </form>
+        <p class="form-footnote">
+            <a href="{% url 'register' %}">← Back to Get Involved</a>
+            ·
+            <a href="{% url 'gutter_priorities' %}">View gutter priorities</a>
+        </p>
+    </div>
+</section>
+{% endblock %}

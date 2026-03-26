@@ -1,0 +1,58 @@
+{% extends 'smartgutter/base.html' %}
+
+{% block title %}Gutter cleaning priorities{% endblock %}
+
+{% block content %}
+<div class="page-title">
+    <h1>Gutter cleaning priorities</h1>
+    <p>
+        Sites that need service next, ordered by city-assigned priority. Data comes from field sensors and city operations
+        (<a href="{% url 'admin:index' %}">admin</a>).
+    </p>
+</div>
+
+<section class="section">
+    {% if gutters %}
+    <div class="priority-table-wrap card">
+        <table class="priority-table">
+            <thead>
+                <tr>
+                    <th>Priority</th>
+                    <th>Site</th>
+                    <th>Location</th>
+                    <th>Debris (sensor)</th>
+                    <th>Water (cm)</th>
+                    <th>Last reading</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for g in gutters %}
+                <tr>
+                    <td><span class="priority-badge">{{ g.cleaning_priority }}</span></td>
+                    <td><code class="site-code">{{ g.site_code }}</code></td>
+                    <td>{{ g.location_description }}</td>
+                    <td>{% if g.debris_level_percent is not None %}{{ g.debris_level_percent }}%{% else %}—{% endif %}</td>
+                    <td>{% if g.sensor_water_level_cm is not None %}{{ g.sensor_water_level_cm }}{% else %}—{% endif %}</td>
+                    <td class="muted-cell">{% if g.last_sensor_read_at %}{{ g.last_sensor_read_at|date:"M j, Y g:i a" }}{% else %}—{% endif %}</td>
+                </tr>
+                {% if g.notes %}
+                <tr class="notes-row">
+                    <td colspan="6"><span class="notes-label">Notes:</span> {{ g.notes }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="card empty-state">
+        <h2>No gutters queued for cleaning</h2>
+        <p class="empty-hint">
+            The city can add sites and sensor readings in the Django admin. When a gutter is marked as needing cleaning,
+            it will appear here, ordered by priority.
+        </p>
+        <p><a href="{% url 'register' %}" class="btn btn-secondary">Get involved</a></p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

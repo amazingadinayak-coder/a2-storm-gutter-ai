@@ -1,4 +1,8 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import redirect, render
+
+from .forms import CityWorkerSignupForm, HomeownerSignupForm
+from .models import Gutter
 
 
 def home(request):
@@ -22,5 +26,52 @@ def how_it_works(request):
 
 
 def register_page(request):
-    """Registration information for city and homeowners."""
+    """Hub for homeowner and city worker registration."""
     return render(request, 'smartgutter/register.html')
+
+
+def homeowner_signup(request):
+    if request.method == 'POST':
+        form = HomeownerSignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'Thanks—you are signed up. The city may contact you using the details you provided.',
+            )
+            return redirect('homeowner_signup')
+    else:
+        form = HomeownerSignupForm()
+    return render(
+        request,
+        'smartgutter/homeowner_signup.html',
+        {'form': form},
+    )
+
+
+def city_worker_signup(request):
+    if request.method == 'POST':
+        form = CityWorkerSignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'Registration received. Your availability is on file for scheduling.',
+            )
+            return redirect('city_worker_signup')
+    else:
+        form = CityWorkerSignupForm()
+    return render(
+        request,
+        'smartgutter/city_worker_signup.html',
+        {'form': form},
+    )
+
+
+def gutter_priorities(request):
+    gutters = Gutter.objects.filter(needs_cleaning=True)
+    return render(
+        request,
+        'smartgutter/gutter_priorities.html',
+        {'gutters': gutters},
+    )
